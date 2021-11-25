@@ -203,8 +203,16 @@ void printTree(Node* node, int depth=0){
     }
 }
 
-float accuracy_metric(vector<int> actual, vector<int> predicted){
+float accuracy_metric(Tree* tree, vector<vector<int>> testSet){
     int correct = 0;
+    vector<int> actual;
+    vector<int> predicted;
+
+    for(int row=0;row<testSet.size();row++){
+        actual.push_back(testSet[row][0]);
+        predicted.push_back(predict(tree->root, testSet[row])-'0');
+    }
+
     for(int i=0;i<actual.size();i++){
         if(actual[i] == predicted[i]) correct++;
     }
@@ -216,15 +224,7 @@ int main(){
     vector<vector<int>> testSet = getDataSet("valid.txt");
     Tree* testTree = buildTree(trainSet, 10, 2);
 
-    vector<int> actual;
-    vector<int> predicted;
-
-    for(int row=0;row<testSet.size();row++){
-        actual.push_back(testSet[row][0]);
-        predicted.push_back(predict(testTree->root, testSet[row])-'0');
-    }
-
     printTree(testTree->root);
-    cout<<"Accuracy: "<< accuracy_metric(actual, predicted) <<"%"<<endl;
+    cout<<"Accuracy: "<< accuracy_metric(testTree,testSet) <<"%"<<endl;
     return 0;
 }
