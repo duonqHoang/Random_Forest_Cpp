@@ -1,10 +1,15 @@
-# Decision Tree and Random forest algorithm
+# Decision Tree and Random Forest algorithm
 
-Sử dụng cho bài toán phân loại cân có thăng bằng hay không.
+Giáo viên hướng dẫn: CN Nguyễn Đình Tuân.
 
+Tham khảo: 
+  
+https://machinelearningmastery.com/implement-decision-tree-algorithm-scratch-python/
+
+https://machinelearningmastery.com/implement-random-forest-scratch-python/
 ## 1. Bộ dữ liệu và output
 ### Input:
-
+Sử dụng cho bài toán phân loại cân có thăng bằng hay không.
 - Mỗi row có dạng (Y,X1,X2,X3,X4):
   - 4 Thuộc tính: {X1 , X2 , X3 , X4}
   - Nhãn Y là một trong 3 giá trị (L,R,B) : cân bị nghiêng về trái (L), nghiêng về bên phải(R) và cân bằng (B).
