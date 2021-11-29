@@ -41,7 +41,7 @@ Sử dụng cho bài toán phân loại cân có thăng bằng hay không.
   - Lưu root Node
 - GetDataSet(path): Trả về một group các rows được đọc từ file gồm các rows có nhãn
 - GetNoLabelSet(path): Giống hàm GetDataSet nhưng dùng cho file gồm các rows không có nhãn
-- duplicateBRows(dataset): 
+- duplicateBRows(dataset, times): tạo ra (times-1) bản sao của các row mang nhãn B trong dataset nếu cần
 - Cross_val_split(dataset, n_folds): chia một dataset(group các rows) thành n_folds phần với các phần tử chọn random (không trùng) từ dataset
 - GetGiniScore(groups, classes): tính chỉ số Gini cho 2 group với classes là các nhãn (L, R, B)
 - Test_split(index, value, dataset): chia dataset ra làm 2 phần dựa trên giá trị value của thuộc tính thứ index
@@ -59,8 +59,8 @@ Sử dụng cho bài toán phân loại cân có thăng bằng hay không.
 
 ## 4.Lịch sử thực hiện:
 
-- Dựng một Decision Tree (Accuracy ~81%)
+- Dựng một Decision Tree (Accuracy ~81% với file valid.txt)
 - Cài đặt Cross Validation
-- Cải tiến lên Random Forest (Max Accuracy ~86%)
+- Cải tiến lên Random Forest (Max Accuracy ~86% với file valid.txt)
 - Dự đoán cho file không có nhãn
 - Thêm export to file
