@@ -61,6 +61,6 @@ Sử dụng cho bài toán phân loại cân có thăng bằng hay không.
 
 - Dựng một Decision Tree (Accuracy ~81% với file valid.txt)
 - Cài đặt Cross Validation
-- Cải tiến lên Random Forest (Max Accuracy ~86% với file valid.txt)
+- Cải tiến lên Random Forest (Max Accuracy ~87% với file valid.txt)
 - Dự đoán cho file không có nhãn
 - Thêm export to file
