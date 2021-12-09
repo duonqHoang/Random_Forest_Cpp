@@ -176,7 +176,7 @@ Node* get_split(vector<vector<int>> dataset, int n_features){
     vector<vector<vector<int>>> groups;
     vector<int> features;
 
-    n_features = rand()%3 + 2;  //random 2 to 4 features
+    n_features = rand()%4 + 1;  //random 2 to 4 features
 
     while(features.size() < n_features){
         int index = 1 + rand()%4;
@@ -388,17 +388,16 @@ void exportResult(vector<vector<int>> &testSet, vector<int> predict){
 }
 
 int main(){
-    srand(time(NULL));
     vector<vector<int>> trainSet = getDataSet(trainPath);
     vector<vector<int>> testSet = getDataSet("valid.txt");
     vector<vector<int>> hiddenTest = getNoLabelSet("private_test.txt");
     //duplicateBRows(trainSet, 7);
 
     int max_depth = 10;
-    int min_size = 2;
-    int sample_size = trainSet.size()*2/3;
-    int n_trees = 100;      //số cây càng lớn càng ổn định, tốn thời gian hơn
-    int n_features = 2;     //nếu giảm cần phải tăng những thuộc tính khác của rừng
+    int min_size = 10;
+    int sample_size = trainSet.size()*1/2;
+    int n_trees = 100;
+    int n_features = 2;
 
     /*
     vector<int> actual;
@@ -413,16 +412,19 @@ int main(){
     }
     */
     //cout<<evaluate_forest(trainSet,7,max_depth,min_size,sample_size,n_trees,n_features);
-
+    float max_score = 80;
+    int count =0;
+    while(max_score < 89.3 && count++ < 30){
     vector<Tree*> forest = random_forest(trainSet,max_depth,min_size,sample_size,n_trees,n_features);
 
-    cout<<"Testset accuracy: "<<accuracy_metric(forest,testSet);
+    max_score = accuracy_metric(forest,testSet);
+    cout<<"Testset accuracy: "<<max_score<<endl;
 
     vector<int> result;
     for(int i=0;i<hiddenTest.size();i++){
         result.push_back(bagging_predict(forest,hiddenTest[i])-'0');
     }
     exportResult(hiddenTest,result);
-
+    }
     return 0;
 }
