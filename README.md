@@ -23,6 +23,7 @@ Sử dụng cho bài toán phân loại cân có thăng bằng hay không.
 ### Output:
 
 - Dự đoán file bất kì và xuất kết quả ra file result.txt
+- Folder results : lưu các kết quả dự đoán file private_test.txt với tên là % chính xác dự đoán file valid.txt
 - In ra độ chính xác với 1 file dữ liệu có sẵn nhãn
 - Có thể in ra 1 cây quyết định
 
